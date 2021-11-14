@@ -1,4 +1,5 @@
 import charts from "../data/charts"
+import {Button} from "@mui/material";
 
 import { Container } from "@mui/material";
 import { useState } from "react";
@@ -30,6 +31,14 @@ const Form = () => {
         isOpen: false,
         imgSrc: ""
     });
+
+    const handleReset = () => {
+        setNplayers("3");
+        setHposition("SB");
+        setVposition("");
+        setBbNum("")
+        setAction("")
+    }
 
     const getCharts = () => {
         let bbRange = [];
@@ -82,6 +91,7 @@ const Form = () => {
     console.log(modalOpen.imgSrc)
     return(
         <Container>
+            <Button variant="outlined" color="error" sx={{position:'absolute', top: '90px', left:'350px'}} onClick={handleReset}>Reset</Button>
             <Nplayers setNplayers={setNplayers} nPlayers={nPlayers}/>
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers}/>
             <BB bbNum={bbNum} setBbNum={setBbNum}/>
