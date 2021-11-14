@@ -91,7 +91,7 @@ const Form = () => {
     console.log(modalOpen.imgSrc)
     return(
         <Container>
-            <Button variant="outlined" color="error" sx={{position:'absolute', top: '90px', left:'350px'}} onClick={handleReset}>Reset</Button>
+            <Button variant="outlined" color="error" sx={{position:'absolute', top: '80px', right:'150px'}} onClick={handleReset}>Reset</Button>
             <Nplayers setNplayers={setNplayers} nPlayers={nPlayers}/>
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers}/>
             <BB bbNum={bbNum} setBbNum={setBbNum}/>
