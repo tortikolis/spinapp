@@ -4,7 +4,7 @@ const Display = ({getCharts, handleModalOpen}) => {
 
 
     const charts = getCharts()
-    const chartsJsx= charts.map(chart => <div key={chart.id} className="image"><img onClick={() => handleModalOpen(chart.img.src)} id={chart.id} width="450" height="460" src={chart.img.src}/></div>)
+    const chartsJsx= charts.map(chart => <img onClick={() => handleModalOpen(chart.img.src)} id={chart.id} key={chart.id} className="image" src={chart.img.src} />)
 
     return(
         <div className="display">
