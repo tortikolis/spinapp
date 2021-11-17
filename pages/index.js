@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
 import Form from '../src/components/Form'
 import Nav from '../src/components/Nav'
 
@@ -17,8 +16,6 @@ export default function Home() {
         <Nav />
         <Form />
       </main>
-
-      
     </div>
   )
 }

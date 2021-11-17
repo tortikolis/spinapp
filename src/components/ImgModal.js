@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Image from 'next/image'
-
 
 const style = {
   position: 'absolute',
@@ -20,7 +18,6 @@ const ImgModal = ({handleClose, open, imgSrc}) => {
 
   return (
     <div>
-
       <Modal
         open={open}
         onClose={handleClose}

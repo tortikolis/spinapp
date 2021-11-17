@@ -9,7 +9,6 @@ export default function ButtonAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-         
           <Link href="/" >
             <a className='links'>Charts</a>
           </Link>

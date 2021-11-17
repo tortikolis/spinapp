@@ -1,8 +1,6 @@
 import { Stack, Button, Box } from "@mui/material";
 import { useEffect } from "react";
 
-
-
 const Vposition = ({setVposition, vPosition, nPlayers, hPosition}) => {
 
     useEffect((setVposition, nPlayers, hPosition) => {
@@ -13,7 +11,6 @@ const Vposition = ({setVposition, vPosition, nPlayers, hPosition}) => {
         }
     },[])
     
-
     const handleBtnClick = (e) => {
         setVposition(e.target.value)
     }

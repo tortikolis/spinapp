@@ -11,6 +11,7 @@ import Vposition from "./Vposition";
 import Action from "./Action";
 import ImgModal from './ImgModal';
 import Random from "./Random";
+import filterCharts from "../hooks/filterCharts";
 
 const Form = () => {
     const [nPlayers, setNplayers] = useState("3");
@@ -32,6 +33,8 @@ const Form = () => {
         imgSrc: ""
     });
 
+    const filteredCharts = filterCharts(charts, nPlayers, hPosition, bbNum, vPosition);
+
     const handleReset = () => {
         setNplayers("3");
         setHposition("SB");
@@ -40,55 +43,15 @@ const Form = () => {
         setAction("")
     }
 
-    const getCharts = () => {
-        let bbRange = [];
 
-        switch (bbNum) {
-            case "22-25" : 
-                bbRange = [22,23,24,25];
-                break;
-            case "17-22" :
-                bbRange = [17, 18, 19, 20, 21, 22];
-                break;
-            case "14-17" :
-                bbRange = [14, 15, 16, 17];
-                break;
-            case "11-14" :
-                bbRange = [11, 12, 13, 14];
-                break;
-            case "9-11" :
-                bbRange = [9, 10, 11];
-                break;
-            case "7-9" :
-                bbRange = [7, 8, 9]
-                break;
-            case "manje od 7" :
-                bbRange = [1,2,3,4,5,6]
-                break;
-            case "" :
-                bbRange = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
-        }
-
-        return charts.filter((chart) => chart.nPlayers === nPlayers)
-        .filter(chart => chart.hPosition === hPosition)
-        .filter(chart => chart.bb.some(item => bbRange.includes(item)))
-        .filter(chart => {
-            if(vPosition === "") {
-                return true
-            } else {
-                return chart.vPosition === vPosition
-            }
-        })
-    }
-
-    const getChartsWithAction = () => getCharts().filter(chart => {
+    const filterChartsWithAction = () => filteredCharts.filter(chart => {
         if(action === "") {
             return true
         } else {
             return chart.action === action
         }
     })
-    console.log(modalOpen.imgSrc)
+
     return(
         <Container>
             <Button variant="outlined" color="error" sx={{position:'absolute', top: '80px', right:'150px'}} onClick={handleReset}>Reset</Button>
@@ -96,8 +59,8 @@ const Form = () => {
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers}/>
             <BB bbNum={bbNum} setBbNum={setBbNum}/>
             <Vposition vPosition={vPosition} setVposition={setVposition} nPlayers={nPlayers} hPosition={hPosition}/>
-            <Action action={action} setAction={setAction} getCharts={getCharts}/>
-            <Display getCharts={getChartsWithAction} handleModalOpen={handleModalOpen}/>
+            <Action action={action} setAction={setAction} filteredCharts={filteredCharts}/>
+            <Display getCharts={filterChartsWithAction} handleModalOpen={handleModalOpen}/>
             <ImgModal open={modalOpen.isOpen} imgSrc={modalOpen.imgSrc} handleClose={handleModalClose}/>
             <Random />
         </Container>

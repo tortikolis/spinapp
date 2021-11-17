@@ -3,8 +3,6 @@ import { Fab, Box } from "@mui/material";
 
 const Random = () => {
 
-    //const initialRandomNum = Math.floor(Math.random()*100)
-
     const [rand, setRand] = useState(50)
 
     const handleClick = () => {
@@ -30,9 +28,7 @@ const Random = () => {
             <Fab onClick={handleClick} color='secondary'>
                 {rand}
             </Fab>
-        </Box>
-        
-        
+        </Box>    
     )
 }
 
