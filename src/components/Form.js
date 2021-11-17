@@ -2,7 +2,7 @@ import charts from "../data/charts"
 import {Button} from "@mui/material";
 
 import { Container } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import BB from "./BB";
 import Display from "./Display";
 import Hposition from "./Hposition";
@@ -23,7 +23,6 @@ const Form = () => {
         isOpen: false,
         imgSrc: ""
     });
-
     const handleModalOpen = (src) => setModalOpen({
         isOpen: true,
         imgSrc: src
@@ -32,8 +31,7 @@ const Form = () => {
         isOpen: false,
         imgSrc: ""
     });
-
-    const filteredCharts = filterCharts(charts, nPlayers, hPosition, bbNum, vPosition);
+    const filteredCharts = useMemo(() => filterCharts(charts, nPlayers, hPosition, bbNum, vPosition), [charts, nPlayers, hPosition, bbNum, vPosition]);
 
     const handleReset = () => {
         setNplayers("3");
@@ -42,7 +40,6 @@ const Form = () => {
         setBbNum("")
         setAction("")
     }
-
 
     const filterChartsWithAction = () => filteredCharts.filter(chart => {
         if(action === "") {
