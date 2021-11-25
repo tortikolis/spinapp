@@ -2,7 +2,7 @@ import charts from "../data/charts"
 import {Button} from "@mui/material";
 
 import { Container } from "@mui/material";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import BB from "./BB";
 import Display from "./Display";
 import Hposition from "./Hposition";
@@ -12,6 +12,7 @@ import Action from "./Action";
 import ImgModal from './ImgModal';
 import Random from "./Random";
 import filterCharts from "../hooks/filterCharts";
+import Count from "./Count";
 
 const Form = () => {
     const [nPlayers, setNplayers] = useState("3");
@@ -31,7 +32,7 @@ const Form = () => {
         isOpen: false,
         imgSrc: ""
     });
-    const filteredCharts = useMemo(() => filterCharts(charts, nPlayers, hPosition, bbNum, vPosition), [charts, nPlayers, hPosition, bbNum, vPosition]);
+    const filteredCharts = filterCharts(charts, nPlayers, hPosition, bbNum, vPosition);
 
     const handleReset = () => {
         setNplayers("3");
@@ -60,6 +61,7 @@ const Form = () => {
             <Display getCharts={filterChartsWithAction} handleModalOpen={handleModalOpen}/>
             <ImgModal open={modalOpen.isOpen} imgSrc={modalOpen.imgSrc} handleClose={handleModalClose}/>
             <Random />
+            <Count />
         </Container>
     )
 }
