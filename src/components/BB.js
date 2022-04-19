@@ -12,9 +12,6 @@ const BB = ({bbNum, setBbNum, charts}) => {
         return arr1.some(r=> arr2.includes(r))
     }
 
-
-    console.log(bbAvailable)
-
     return(
         <Box>
             <h6>BB:</h6>

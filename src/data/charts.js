@@ -91,10 +91,15 @@ import HUsbVsShove13bb from './images/HU/SB/vsShove/13bb.PNG'
 import HUsbVsShove16bb from './images/HU/SB/vsShove/16bb.PNG'
 import HUsbVsShove20bb from './images/HU/SB/vsShove/20bb.PNG'
 import HUsbVsShove25bb from './images/HU/SB/vsShove/25bb.PNG'
+import Nash from './images/HU/hu-nash.png'
 
 
  
 const charts = [
+    {
+        img: Nash,
+        id:999
+    },
     
     {
         img: bbVsBtnRaise25BB,
@@ -103,7 +108,8 @@ const charts = [
         bb: [25],
         action: "vs Raise",
         vPosition: "BTN",
-        id: 1
+        id: 1,
+       
     },
     {
         img: bbVsBtnRaise16BB,

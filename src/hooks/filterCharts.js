@@ -1,5 +1,8 @@
 
 const filterCharts = (charts, nPlayers, hPosition, bbNum, vPosition) => {
+    if(nPlayers === '1'){
+        return [charts[0]]
+    }
     let bbRange = [];
 
         switch (bbNum) {
