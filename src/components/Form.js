@@ -56,9 +56,9 @@ const Form = () => {
             <Button variant="outlined" color="error" sx={{position:'absolute', top: '80px', right:'150px'}} onClick={handleReset}>Reset</Button>
             <Nplayers setNplayers={setNplayers} nPlayers={nPlayers}/>
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers}/>
-            <BB bbNum={bbNum} setBbNum={setBbNum}/>
             <Vposition vPosition={vPosition} setVposition={setVposition} nPlayers={nPlayers} hPosition={hPosition}/>
             <Action action={action} setAction={setAction} filteredCharts={filteredCharts}/>
+            <BB bbNum={bbNum} setBbNum={setBbNum} charts={filterChartsWithAction()}/>
             <Display getCharts={filterChartsWithAction} handleModalOpen={handleModalOpen}/>
             <ImgModal open={modalOpen.isOpen} imgSrc={modalOpen.imgSrc} handleClose={handleModalClose}/>
             <Labels />
