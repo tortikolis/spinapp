@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { Profiler } from 'react'
 import Form from '../src/components/Form'
 import Nav from '../src/components/Nav'
 
@@ -14,10 +13,8 @@ export default function Home() {
       </Head>
 
       <main>
-
         <Nav />
         <Form />
-
       </main>
     </div>
   )
