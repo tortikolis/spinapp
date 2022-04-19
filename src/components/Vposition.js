@@ -12,7 +12,7 @@ const Vposition = ({setVposition, vPosition, nPlayers, hPosition}) => {
     },[])
     
     const handleBtnClick = (e) => {
-        setVposition(e.target.value)
+        setVposition(prev => prev === e.target.value ? "" : e.target.value)
     }
 
     const btnBTN = nPlayers === "3" && hPosition !== "BTN" && <Button onClick={handleBtnClick} value="BTN" variant={vPosition === "BTN"? "contained" : "outlined"}>BTN</Button>

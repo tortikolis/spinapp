@@ -3,7 +3,7 @@ import { Stack, Button, Box } from "@mui/material";
 const BB = ({bbNum, setBbNum, charts}) => {
 
     const handleBtnClick = (e) => {
-        setBbNum(e.target.value)
+        setBbNum(prev => prev === e.target.value ? "" : e.target.value)
     }
 
     const bbAvailable = charts.map(chart => chart.bb).flat();

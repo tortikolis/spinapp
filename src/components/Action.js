@@ -4,7 +4,7 @@ const Action = ({action, setAction, filteredCharts}) => {
 
 
     const handleBtnClick = (e) => {
-        setAction(e.target.value)
+        setAction(prev => prev === e.target.value ? "" : e.target.value)
     }
 
     const chartsFiltered = [...new Set(filteredCharts.map(chart => chart.action))]
