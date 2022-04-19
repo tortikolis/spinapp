@@ -53,7 +53,7 @@ const Form = () => {
 
     return(
         <Container>
-            <Button variant="outlined" color="error" sx={{position:'absolute', top: '80px', right:'150px'}} onClick={handleReset}>Reset</Button>
+            <Button variant="outlined" color="error" onClick={handleReset} sx={{marginTop:'10px'}}>Reset</Button>
             <Nplayers setNplayers={setNplayers} nPlayers={nPlayers}/>
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers}/>
             <Vposition vPosition={vPosition} setVposition={setVposition} nPlayers={nPlayers} hPosition={hPosition}/>
