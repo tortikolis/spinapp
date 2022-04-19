@@ -12,6 +12,9 @@ export default function ButtonAppBar() {
           <Link href="/" >
             <a className='links'>Charts</a>
           </Link>
+          <Link href="/log" >
+            <a className='links'>Log</a>
+          </Link>
         </Toolbar>
       </AppBar>
     </Box>

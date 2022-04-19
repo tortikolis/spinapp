@@ -13,6 +13,7 @@ import ImgModal from './ImgModal';
 import Random from "./Random";
 import filterCharts from "../hooks/filterCharts";
 import Count from "./Count";
+import Labels from "./Labels";
 
 const Form = () => {
     const [nPlayers, setNplayers] = useState("3");
@@ -60,6 +61,7 @@ const Form = () => {
             <Action action={action} setAction={setAction} filteredCharts={filteredCharts}/>
             <Display getCharts={filterChartsWithAction} handleModalOpen={handleModalOpen}/>
             <ImgModal open={modalOpen.isOpen} imgSrc={modalOpen.imgSrc} handleClose={handleModalClose}/>
+            <Labels />
             <Random />
             <Count />
         </Container>
