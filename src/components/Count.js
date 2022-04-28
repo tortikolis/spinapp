@@ -57,6 +57,9 @@ const Count = () => {
         bottom: '60px',
         right: '10px',
         padding: '10px',
+        ['@media (max-width:780px)']: {
+            opacity:'0'
+          },
    
       };
     console.log(isTimerActive)

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 const style = {
   position: 'absolute',
@@ -12,6 +14,9 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  ['@media (max-width:780px)']: {
+    maxWidth:'100%',
+  },
 };
 
 const ImgModal = ({handleClose, open, imgSrc}) => {
@@ -26,7 +31,7 @@ const ImgModal = ({handleClose, open, imgSrc}) => {
       >
         <Box sx={style}>
           
-          <img src={imgSrc}/>
+          <img style={{maxWidth:'400px'}} src={imgSrc}/>
         </Box>
       </Modal>
     </div>
