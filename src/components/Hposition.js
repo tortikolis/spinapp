@@ -1,9 +1,10 @@
 import { Stack, Button, Box } from "@mui/material";
 
-const Hposition = ({setHposition, hPosition, nPlayers}) => {
+const Hposition = ({setHposition, hPosition, nPlayers, setCounter}) => {
 
     const handleBtnClick = (e) => {
-        setHposition(e.target.value)
+        setHposition(e.target.value);
+        setCounter(0);
     }
 
     const btnBTN = nPlayers === "3" && <Button onClick={handleBtnClick} value="BTN" variant={hPosition === "BTN"? "contained" : "outlined"}>BTN</Button>

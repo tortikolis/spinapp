@@ -1,9 +1,10 @@
 import { Stack, Button, Box } from "@mui/material";
 
-const Nplayers = ({setNplayers, nPlayers}) => {
+const Nplayers = ({setNplayers, nPlayers, setCounter}) => {
 
     const handleBtnClick = (e) => {
-        setNplayers(e.target.value)
+        setNplayers(e.target.value),
+        setCounter(0)
     }
 
     return(

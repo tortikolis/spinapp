@@ -62,7 +62,7 @@ const Count = () => {
           },
    
       };
-    console.log(isTimerActive)
+    
 
     const seconds = time.seconds < 10? `0${time.seconds}` : time.seconds
     const minutes = time.minutes < 10? `0${time.minutes}` : time.minutes

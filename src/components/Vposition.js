@@ -1,7 +1,7 @@
 import { Stack, Button, Box } from "@mui/material";
 import { useEffect } from "react";
 
-const Vposition = ({setVposition, vPosition, nPlayers, hPosition}) => {
+const Vposition = ({setVposition, vPosition, nPlayers, hPosition, setCounter}) => {
 
     useEffect((setVposition, nPlayers, hPosition) => {
         if(nPlayers ==="2" && hPosition === "SB") {
@@ -12,7 +12,8 @@ const Vposition = ({setVposition, vPosition, nPlayers, hPosition}) => {
     },[])
     
     const handleBtnClick = (e) => {
-        setVposition(prev => prev === e.target.value ? "" : e.target.value)
+        setVposition(prev => prev === e.target.value ? "" : e.target.value);
+        setCounter(0);
     }
 
     const btnBTN = nPlayers === "3" && hPosition !== "BTN" && <Button onClick={handleBtnClick} value="BTN" variant={vPosition === "BTN"? "contained" : "outlined"}>BTN</Button>

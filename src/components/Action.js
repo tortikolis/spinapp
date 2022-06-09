@@ -1,10 +1,11 @@
 import { Stack, Button, Box } from "@mui/material";
 
-const Action = ({action, setAction, filteredCharts}) => {
+const Action = ({action, setAction, filteredCharts, setCounter}) => {
 
 
     const handleBtnClick = (e) => {
-        setAction(prev => prev === e.target.value ? "" : e.target.value)
+        setAction(prev => prev === e.target.value ? "" : e.target.value);
+        setCounter(0);
     }
 
     const chartsFiltered = [...new Set(filteredCharts.map(chart => chart.action))]
