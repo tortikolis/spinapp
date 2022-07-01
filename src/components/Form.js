@@ -26,17 +26,17 @@ const Form = () => {
         isOpen: false,
         imgSrc: ""
     });
-    console.log(counter)
+   const [autoreset, setAutoreset] = useState(true);
 
-    const isStartingState = hPosition == "SB" && vPosition == "" && bbNum == "" && action == "";
+    const isStartingState = hPosition == "SB" && vPosition == "" && bbNum == "" && action == "" ;
     
     useEffect(() => {
-        if(counter > 7) {
+        if(counter > 10) {
             handleReset();
             setCounter(0);
         }
 
-        if(!isStartingState){
+        if(!isStartingState && autoreset){
             const interval = setTimeout(()=> {
                 setCounter(prev => prev + 1)
             }, 1000)
@@ -77,12 +77,17 @@ const Form = () => {
         }
     })
 
+    const toggleAutoreset = () => {
+        setAutoreset((prev => !prev))
+    }
+
     return(
         <Container>
             <Button variant="outlined" color="error" onClick={handleReset} sx={{marginTop:'10px'}}>Reset</Button>
+            <Button variant={autoreset ? "contained" : "outlined"} color="error" onClick={toggleAutoreset} sx={{marginTop:'10px'}}> Autoreset</Button>
             <Nplayers setNplayers={setNplayers} nPlayers={nPlayers} setCounter={setCounter}/>
             <Hposition setHposition={setHposition} hPosition={hPosition} nPlayers={nPlayers} setCounter={setCounter}/>
-            <Vposition vPosition={vPosition} setVposition={setVposition} nPlayers={nPlayers} hPosition={hPosition} setCounter={setCounter}/>
+            <Vposition vPosition={vPosition} setVposition={setVposition} nPlayers={nPlayers} hPosition={hPosition} setCounter={setCounter}/>    
             <Action action={action} setAction={setAction} filteredCharts={filteredCharts} setCounter={setCounter}/>
             <BB bbNum={bbNum} setBbNum={setBbNum} charts={filterChartsWithAction()} setCounter={setCounter}/>
             <Display getCharts={filterChartsWithAction} handleModalOpen={handleModalOpen}/>
